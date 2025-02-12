@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="data" style="padding:10px 20px"></div>
+  <form action="#" method="post" style="padding:20px" id="formData">
+    <h1>Registration Form</h1>
+    
+    <label for="FirstName">FirstName:</label>
+    <input type="text" id="FirstName" name="FirstName" required><br>
+    <label for="LastName">LastName:</label>
+    <input type="text" id="LastName" name="LastName" required><br>
+
+    <input type="submit" value="Submit"><br>
+  </form> <br>
+
+	<script>
+    let loginForm = document.getElementById("formData"); 
+      loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();  
+      let data = new FormData(loginForm); 
+      let formDataObject = Object.fromEntries(data.entries());      
+       console.log(formDataObject);
+      loginForm.reset(); 
+	 }); 
+  </script>
+</body>
+</html>

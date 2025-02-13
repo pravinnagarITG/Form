@@ -1,0 +1,163 @@
+📘 JavaScript Array Documentation
+JavaScript me Array ek ordered collection hota hai jisme hum multiple values ko ek hi variable me store kar sakte hain. Arrays me har value ka ek index hota hai jo 0 se start hota hai.
+
+1. Array Kya Hai?
+JavaScript me array ek object hota hai jo ek sequence me values ko store karta hai. Ye values kisi bhi type ki ho sakti hain (jaise numbers, strings, objects, functions, etc.).
+let fruits = ['Apple', 'Banana', 'Mango'];
+console.log(fruits[0]); // Output: Apple
+
+******************************************************************
+2. Array Methods
+JavaScript me arrays ke saath kaam karne ke liye bahut saare methods diye gaye hain ye methods jada use me ati hai:
+
+1. push()
+Array ke end me ek ya zyada elements add karta hai.
+let arr = [1, 2, 3];
+arr.push(4);
+console.log(arr); // Output: [1, 2, 3, 4]
+
+2. pop()
+Array ke end se ek element remove karta hai.
+let arr = [1, 2, 3];
+arr.pop();
+console.log(arr); // Output: [1, 2]
+
+3. unshift()
+Array ke start me ek ya zyada elements add karta hai.
+let arr = [2, 3, 4];
+arr.unshift(1);
+console.log(arr); // Output: [1, 2, 3, 4]
+
+4. shift()
+Array ke start se ek element remove karta hai.
+let arr = [1, 2, 3];
+arr.shift();
+console.log(arr); // Output: [2, 3]
+
+5. splice()
+Array me kisi bhi index par element add ya remove karta hai.
+let arr = [1, 2, 3, 4];
+arr.splice(2, 1); // Index 2 se 1 element remove karega
+console.log(arr); // Output: [1, 2, 4]
+
+6. slice()
+Array ke ek hisse ko naya array banata hai.
+let arr = [1, 2, 3, 4];
+let newArr = arr.slice(1, 3);
+console.log(newArr); // Output: [2, 3]
+
+7. concat()
+Do ya zyada arrays ko jodta hai.
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+let newArr = arr1.concat(arr2);
+console.log(newArr); // Output: [1, 2, 3, 4]
+
+8. join()
+Array ke saare elements ko ek string me jodta hai.
+let arr = ['Hello', 'World'];
+let str = arr.join(' ');
+console.log(str); // Output: "Hello World"
+
+9. toString()
+Array ko string me convert karta hai.
+let arr = [1, 2, 3];
+console.log(arr.toString()); // Output: "1,2,3"
+
+****************************************************************************
+3. Array Search
+Array me elements ko search karne ke liye kuch methods hain:
+
+1. indexOf()
+Pehli baar kis index par element mila hai wo batata hai.
+let arr = [1, 2, 3, 2];
+console.log(arr.indexOf(2)); // Output: 1
+
+2. lastIndexOf()
+Aakhri baar kis index par element mila hai wo batata hai.
+let arr = [1, 2, 3, 2];
+console.log(arr.lastIndexOf(2)); // Output: 3
+
+3. includes()
+Check karta hai ki element array me hai ya nahi.
+let arr = [1, 2, 3];
+console.log(arr.includes(2)); // Output: true
+
+4. find()
+Pehla element jo condition ko satisfy karta hai wo return karta hai.
+let arr = [5, 12, 8, 130, 44];
+let found = arr.find(element => element > 10);
+console.log(found); // Output: 12
+
+5. findIndex()
+Pehle matching element ka index return karta hai.
+let arr = [5, 12, 8, 130, 44];
+let index = arr.findIndex(element => element > 10);
+console.log(index); // Output: 1
+
+*******************************************************************************
+4. Array Sort
+Array ko sort karne ke liye methods:
+
+1. sort()
+Elements ko alphabetical ya custom order me sort karta hai.
+let arr = [4, 2, 5, 1, 3];
+arr.sort((a, b) => a - b); // Ascending order
+console.log(arr); // Output: [1, 2, 3, 4, 5]
+
+2. reverse()
+Array ko ulta kar deta hai.
+let arr = [1, 2, 3];
+arr.reverse();
+console.log(arr); // Output: [3, 2, 1]
+
+*********************************************
+5. Array Iteration
+Array ke har element par kaam karne ke liye methods:
+
+1. forEach()
+Har element par function execute karta hai.
+let arr = [1, 2, 3];
+arr.forEach(num => console.log(num));
+
+2. map()
+Har element ko transform karke naya array banata hai.
+let arr = [1, 2, 3];
+let doubled = arr.map(num => num * 2);
+console.log(doubled); // Output: [2, 4, 6]
+
+3. filter()
+Condition satisfy karne wale elements ko naya array banata hai.
+let arr = [1, 2, 3, 4];
+let even = arr.filter(num => num % 2 === 0);
+console.log(even); // Output: [2, 4]
+
+4. reduce()
+Array ke elements ko ek single value me reduce karta hai.
+let arr = [1, 2, 3, 4];
+let sum = arr.reduce((total, num) => total + num, 0);
+console.log(sum); // Output: 10
+
+5. some()
+Check karta hai ki kam se kam ek element condition ko satisfy karta hai ya nahi.
+let arr = [1, 2, 3, 4];
+console.log(arr.some(num => num > 3)); // Output: true
+
+6. every()
+Check karta hai ki saare elements condition ko satisfy karte hain ya nahi.
+let arr = [1, 2, 3, 4];
+console.log(arr.every(num => num > 0)); // Output: true
+
+*****************************************************************************
+6. Array Const
+const keyword se banaye gaye array ko re-assign nahi kar sakte, lekin uske elements ko modify kar sakte hain.
+
+Example:
+const fruits = ['Apple', 'Banana'];
+fruits[0] = 'Mango'; // Allowed
+console.log(fruits); // Output: ['Mango', 'Banana']
+
+// fruits = ['Orange', 'Pineapple']; // ❌ Error: Assignment to constant variable
+
+********_*********_*******************_********************
+Ye documentation JavaScript me array ke saare important methods aur use-cases ko cover karta hai.

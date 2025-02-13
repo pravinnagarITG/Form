@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculater</title>
+</head>
+<body>
+<input type="number" name="" id="first" placeholder="Enter Number">
+<input type="text" name="" id="symbol" placeholder="Enter Symbol">
+<input type="number" name="" id="second" placeholder="Enter Number">
+<button id="calculate">caluclate</button>
+<p id="result"></p>
+<script>
+document.getElementById('calculate').addEventListener("click", function() {
+    let first = document.getElementById('first').value;
+    let second = document.getElementById('second').value;
+    let symbol = document.getElementById('symbol').value;
+
+ let calculater = function(first, second, symbol) {
+        first = Number(first);
+        second = Number(second);
+    if (symbol === '-') {
+        return first - second;
+    } else if (symbol === '+') {
+        return first + second;
+    } else if (symbol === '*') {
+        return first * second;
+    } else if (symbol === '/') {
+        return first / second;
+    } else if (symbol === '%') {
+        return first % second;
+    } else {
+        return 'Invalid symbol';
+    }
+}
+
+    let result = calculater(first, second, symbol);
+    document.getElementById('result').innerHTML = result;
+});
+
+</script>
+</body>
+</html>

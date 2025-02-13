@@ -7,11 +7,12 @@
 </head>
 <body>
 <input type="number" name="" id="first" placeholder="Enter Number">
-<input type="text" name="" id="symbol" placeholder="Enter Symbol">
+<input type="text" name="" id="symbol" placeholder="Enter symbol (+, -, *, /, =, %)">
 <input type="number" name="" id="second" placeholder="Enter Number">
 <button id="calculate">caluclate</button>
 <p id="result"></p>
 <script>
+let inputField = document.getElementById('symbol');
 document.getElementById('calculate').addEventListener("click", function() {
     let first = document.getElementById('first').value;
     let second = document.getElementById('second').value;
@@ -38,7 +39,13 @@ document.getElementById('calculate').addEventListener("click", function() {
     let result = calculater(first, second, symbol);
     document.getElementById('result').innerHTML = result;
 });
-
+inputField.addEventListener("input", function(event) {
+        let value = event.target.value;
+        let pattern = /^[\+\-\*\/\=\%]+$/;
+        if (!pattern.test(value)) {
+            event.target.value = value.slice(0, -1);
+        }
+    });
 </script>
 </body>
 </html>

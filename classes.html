@@ -13,9 +13,9 @@
     class CustomButton extends HTMLElement{
         constructor(){
             super();
-           this.innerHTML = `Hello Im Pravin <span>Click Here</span> To See My Profile`;
+           this.innerHTML = `Hello Im<strong> Pravin </strong><span><a href="https://github.com/pravinnagarITG" target="_blank">Click Here</a></span> To See My Profile`;
            this.querySelector('span').addEventListener("click", ()=>{
-              alert("Hello!..");
+              alert("Thankyou..!");
            })
         }
     }

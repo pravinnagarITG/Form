@@ -6,6 +6,103 @@
     <title>Classes Task</title>
 </head>
 <body>
+<pravin-nagar>
+    <h2>I'm Pravin Nagar</h2>
+</pravin-nagar>
+<script>
+    class CustomButton extends HTMLElement{
+        constructor(){
+            super();
+           this.innerHTML = `Hello Im Pravin <span>Click Here</span> To See My Profile`;
+           this.querySelector('span').addEventListener("click", ()=>{
+              alert("Hello!..");
+           })
+        }
+    }
+    customElements.define('pravin-nagar', CustomButton);
+
+// task 
+ 
+class Book{ 
+    constructor(title, authore, year){
+     this.title = title;
+     this.authore = authore;
+     this.year = year;
+    }
+}
+   class Library extends Book{
+    constructor(){
+        super();
+        this.books = [];
+        console.log(`books added successfully `, this.books);
+    }
     
+    addBook(book){
+        this.books.push(book);      
+    }
+
+    removeBook(title) {
+    this.books = this.books.filter((book) => book.title !== title);
+    console.log(`Book "${title}" removed successfully`);
+   }
+
+   findBook(title){
+    let check = this.books.some(checkTittle);
+    function checkTittle(book){
+      if(book.title === title ){
+        return true;
+      }else{
+        return false;
+      }
+    }
+    console.log(check)
+   }
+
+   listBooks(){
+    console.log(`list of all books`, this.books);
+   }
+
+   getBookInfo(check) {
+  const foundBooks = this.books.filter(
+    (book) =>
+      book.title === check ||
+      book.author === check ||
+      book.year.toString() === check
+  );
+
+  if (foundBooks.length > 0) {
+    foundBooks.forEach((book) => {
+      console.log(`Title: ${book.title}, Author: ${book.authore}, Year: ${book.year}`);
+    });
+  } else {
+    console.log("no");
+  }
+}
+
+
+
+    }
+
+
+const library = new Library();
+
+const book1 = new Book("The Lord Himanshu", "Pravin Nagar", 2009);
+const book2 = new Book("The Lord Mahima", "Rahul Kisne", 2010);
+const book3 = new Book("The Lord Mohit", "Himanshu", 2013);
+
+
+library.addBook(book1);
+library.addBook(book2);
+library.addBook(book3);
+
+library.removeBook('The Lord Mahima');
+
+library.listBooks();
+
+library.findBook('The Lord Himanshu');
+
+library.getBookInfo('2013');
+
+</script>
 </body>
 </html>

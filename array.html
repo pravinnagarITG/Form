@@ -16,55 +16,38 @@
     let totalNumber = document.getElementById("totalNumber");
 
     let arr = [4,4,4,2,2,2,8,4,4,7,7,7,582,753,951,654,0.2,0.5,.5,.6,.2, 0,1,2,4,7,88,99,77,44,55,88,77,99,0,22,.55,66,77,951,753,850];
-
-    let max1 = 0;
-    let max2 = 0;
-    let max3 = 0;
-
-    for(let i = 0; i < arr.length; i++){
-    let num = arr[i];
-
-    if(arr.indexOf(num) === i){ 
-        if(num > max1){      
-            max2 = max1;
-            max1 = num;
-        } else if(num > max2){
-            max3 = max2;
-            max2 = num;
-        } else if(num > max3){
-            max3 = num;
+    arr.sort((a, b) => b - a);
+    let top3 = [];
+    //max
+    for (let i = 0; i < arr.length; i++) {
+        if (top3.indexOf(arr[i]) === -1) {
+            top3.push(arr[i]);
         }
-    }
-}
-biggestNumber.innerHTML = [max1, max2, max3].join(",  ");;
+        if (top3.length === 3) break;
+    }   
+    biggestNumber.innerHTML = top3;
 
-    let min1 = Infinity;
-    let min2 = Infinity;
-    let min3 = Infinity; 
-for(let i = 0; i < arr.length; i++){
-    let num = arr[i];  
-    if(arr.indexOf(num) === i){ 
-        if(num < min1){
-            min3 = min2;
-            min2 = min1;
-            min1 = num;
-        } else if(num < min2){
-            min3 = min2;
-            min2 = num;
-        } else if(num < min3){
-            min3 = num;
-        }
+    // min
+    arr.sort((a, b) => a - b);
+    let topMin3 = [];
+    for (let i = 0; i < arr.length; i++) {
+    if (topMin3.indexOf(arr[i]) === -1) {
+        topMin3.push(arr[i]);
     }
+    if (topMin3.length === 3) break;
 }
-smallestNumber.innerHTML= [min1, min2, min3].join(", ");;
+    smallestNumber.innerHTML= topMin3;
 
 
 var count = {};
 arr.forEach(function(i) { 
  count[i] = (count[i] || 0) + 1;
 });
-let nn = JSON.stringify(count);
 totalNumber.innerHTML = Object.entries(count).join("  ");
+
+
+
+
 
 </script>
 </body>
